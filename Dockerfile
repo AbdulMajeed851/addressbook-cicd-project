@@ -1,4 +1,4 @@
-FROM openjdk:11
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+FROM tomcat:9
+COPY target/*.war/usr/local/tomcat/webapps/addressbook.war
+EXPOSE 8080
+cmd ["cataline.sh","run"]
